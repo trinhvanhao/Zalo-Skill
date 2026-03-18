@@ -1,0 +1,42 @@
+{
+  "name": "zalo-ai-bot",
+  "version": "1.0.0",
+  "description": "🤖 Zalo AI Auto-Reply Bot - Trả lời tự động với Gemini AI",
+  "type": "module",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node --watch bot.js",
+    "mcp": "node mcp-advanced.js",
+    "mcp:stdio": "node mcp-server.js stdio",
+    "mcp:http": "node mcp-server.js http 3847 secret-key-123",
+    "hybrid": "node hybrid-bot.js",
+    "analyze": "python3 claude-analyzer.py",
+    "analyze:watch": "watch -n 3600 'python3 claude-analyzer.py'",
+    "personal": "python3 personal-analyzer.py",
+    "docx": "python3 personal-docx-analyzer.py",
+    "report": "bash run-analysis.sh",
+    "report:1": "bash run-analysis.sh 1",
+    "report:2": "bash run-analysis.sh 2",
+    "msg": "node message-sender.js",
+    "msg:help": "node message-sender.js",
+    "friends": "node friend-manager.js",
+    "friends:help": "node friend-manager.js",
+    "bulk": "python3 bulk-messenger.py",
+    "bulk:help": "python3 bulk-messenger.py --help"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "requests": "^0.0.1"
+  },
+  "python": {
+    "requirements": ["requests"]
+  },
+  "devDependencies": {},
+  "keywords": ["zalo", "bot", "ai", "gemini"],
+  "author": "Zalo AI Bot",
+  "license": "MIT"
+}
