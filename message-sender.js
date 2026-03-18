@@ -62,12 +62,45 @@ function parseArgs() {
   return { threadId, message, options };
 }
 
+async function resolveThreadId(identifier) {
+  try {
+    // Kiểm xem có phải số hay không
+    if (/^\d+$/.test(identifier)) {
+      return identifier; // Là ID rồi
+    }
+    
+    // Tìm từ tên liên hệ
+    log(colors.blue, `🔍 Tìm ID từ tên "${identifier}"...`);
+    const searchCmd = `zalo-agent friend search "${identifier}" 2>/dev/null`;
+    const searchResult = execSync(searchCmd, { encoding: 'utf-8' });
+    
+    // Parse kết quả để lấy ID (dòng đầu tiên trong kết quả là ID)
+    const lines = searchResult.split('\n').filter(l => l.trim());
+    const idLine = lines.find(l => /^\d{19}/.test(l.trim()));
+    
+    if (!idLine) {
+      throw new Error(`Không tìm thấy liên hệ "${identifier}"`);
+    }
+    
+    const foundId = idLine.trim().split(/\s+/)[0];
+    const foundName = idLine.trim().split(/\s+/).slice(1).join(' ');
+    log(colors.green, `✅ Tìm được: ${foundName} (ID: ${foundId})`);
+    
+    return foundId;
+  } catch (error) {
+    throw new Error(`Lỗi tìm ID: ${error.message}`);
+  }
+}
+
 async function sendTextMessage(threadId, message) {
   try {
-    log(colors.blue, `📨 Gửi tin nhắn tới thread ${threadId}...`);
+    // Giải quyết threadId (có thể là tên hoặc ID)
+    const resolvedId = await resolveThreadId(threadId);
+    
+    log(colors.blue, `📨 Gửi tin nhắn tới thread ${resolvedId}...`);
     log(colors.cyan, `📝 Nội dung: "${message}"`);
     
-    const cmd = `zalo-agent msg send "${threadId}" "${message.replace(/"/g, '\\"')}"`;
+    const cmd = `zalo-agent msg send "${resolvedId}" "${message.replace(/"/g, '\\"')}"`;
     const result = execSync(cmd, { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] });
     
     log(colors.green, '✅ Gửi thành công!');

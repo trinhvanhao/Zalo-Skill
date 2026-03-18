@@ -1,6 +1,25 @@
-# ⚡ QUICK START - Personal Analyzer
+# ⚡ QUICK START - Zalo Skill v1.1.0
 
 ## 🎯 Trong 2 phút
+
+### 💬 Gửi Tin Nhắn (MỚI!)
+
+```bash
+cd ~/Zalo\ Skill
+
+# Gửi bằng tên liên hệ (dễ nhất!)
+npm run msg "Hào" "Xin chào!"
+npm run msg "San Thật Chất" "Tin nhắn"
+
+# Hoặc bằng ID nếu biết
+npm run msg 8672767095770686387 "Hello!"
+```
+
+**✅ Xong! Tin nhắn đã gửi**
+
+---
+
+## 📊 Personal Analyzer - Tạo Báo Cáo
 
 ### 1️⃣ Setup Telegram (first time only)
 

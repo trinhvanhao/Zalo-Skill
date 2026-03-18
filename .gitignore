@@ -5,3 +5,8 @@ node_modules/
 logs/
 dist/
 .DS_Store
+
+# User data - should not be tracked
+backups/
+reports/
+*.docx

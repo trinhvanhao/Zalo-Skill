@@ -1,14 +1,26 @@
-# 🤖 Zalo AI Auto-Reply Bot
+# 🤖 Zalo AI Auto-Reply Bot + Messaging Suite
 
-Bot Zalo tự động trả lời thông minh sử dụng Gemini AI.
+Bot Zalo tự động trả lời thông minh sử dụng Gemini AI + 9 tính năng messaging mạnh mẽ.
 
 ## 🎯 Tính năng
 
+### 🤖 Auto-Reply Bot
 - ✅ **Lắng nghe tin nhắn** từ Zalo (cá nhân + nhóm)
 - ✅ **Xử lý AI** với Gemini 2.0
 - ✅ **Trả lời tự động** dựa trên kiến thức
 - ✅ **Hoạt động 24/7** trên VPS
 - ✅ **Dễ tùy chỉnh** kiến thức
+
+### 📨 Messaging Suite (MỚI!)
+- ✅ **Gửi tin nhắn** (bằng tên hoặc ID - tự động tìm ID)
+- ✅ **Gửi ảnh, file, link** cùng lúc
+- ✅ **Quản lý bạn bè** (thêm, tìm kiếm, gửi lời mời)
+- ✅ **Gửi hàng loạt** tới nhiều người
+- ✅ **Automation** tích hợp với báo cáo
+
+**👉 Quick start:** `npm run msg "Hào" "Hello!"`
+
+📖 Chi tiết: [MESSAGING_QUICK_START.md](./MESSAGING_QUICK_START.md)
 
 ## ⚙️ Setup
 

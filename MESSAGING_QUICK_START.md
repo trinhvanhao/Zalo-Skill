@@ -10,17 +10,20 @@
 ### 1️⃣ **Message Sender** - Gửi tin nhắn cá nhân
 
 ```bash
-# Gửi tin nhắn text
-npm run msg 123456789 "Hello!"
+# Gửi tin nhắn text (bằng tên - MỚI!)
+npm run msg "Hào" "Hello!"
+
+# Hoặc bằng ID
+npm run msg 8672767095770686387 "Hello!"
 
 # Gửi ảnh
-npm run msg 123456789 "Photo" --image ~/photo.jpg
+npm run msg "Hào" "Photo" --image ~/photo.jpg
 
 # Gửi file
-npm run msg 123456789 "Report" --file ~/report.pdf
+npm run msg "Hào" "Report" --file ~/report.pdf
 
 # Gửi link
-npm run msg 123456789 "Check this" --link https://example.com
+npm run msg "Hào" "Check this" --link https://example.com
 ```
 
 ✨ **Đặc điểm:**
@@ -92,12 +95,26 @@ npm run bulk --all "Message" --delay 2
 
 ---
 
-## 📝 HOW TO GET ThreadId/UserId
+## 📝 GỬI BẰNG TÊN HOẶC ID (AUTO-RESOLVE)
+
+### ✨ **MỚI: Gửi bằng tên liên hệ (tự động tìm ID)**
+
+```bash
+# Gửi bằng tên - EASY! ✅
+npm run msg "Hào" "Hello!"
+npm run msg "San Thật Chất" "Tin nhắn"
+npm run msg "Trig" "Hi there"
+
+# Hoặc gửi bằng ID (nếu biết)
+npm run msg 8672767095770686387 "Hello!"
+```
+
+### 🔍 Lấy ThreadId/UserId (nếu cần)
 
 ```bash
 # Cách 1: Tìm theo tên
 zalo-agent friend search "Hào"
-# Output: ID: 123456789
+# Output: 8672767095770686387  Hào
 
 # Cách 2: Danh sách tất cả
 zalo-agent friend list
@@ -110,7 +127,7 @@ zalo-agent friend find "0902123456"
 zalo-agent friend find-username "username123"
 ```
 
-👉 **Copy ID từ output → dùng trong lệnh**
+👉 **Gửi bằng tên dễ hơn - không cần tìm ID!**
 
 ---
 
@@ -121,12 +138,12 @@ zalo-agent friend find-username "username123"
 # 1. Sinh báo cáo
 npm run docx
 
-# 2. Gửi cho manager
-npm run msg 123456789 "Daily Report" \
-  --file ~/Zalo Skill/reports/personal_report_*.docx
+# 2. Gửi cho manager (bằng tên - MỚI!)
+npm run msg "Hào" "Daily Report" \
+  --file ~/Zalo\ Skill/reports/personal_report_*.docx
 
 # 3. Thông báo team
-npm run bulk --group 555555555 "Report sent!"
+npm run bulk --all "Report sent!"
 ```
 
 ---
@@ -139,8 +156,8 @@ npm run friends add 987654321 "Let's connect!"
 # 2. Chờ chấp nhận (nếu cần)
 sleep 5
 
-# 3. Gửi welcome message
-npm run msg 987654321 "Welcome! 🎉"
+# 3. Gửi welcome message (bằng tên)
+npm run msg "Hào" "Welcome! 🎉"
 ```
 
 ---
@@ -149,9 +166,9 @@ npm run msg 987654321 "Welcome! 🎉"
 ```bash
 # 1. Tạo danh sách: contacts.txt
 cat > contacts.txt << EOF
-123456789
-234567890
-345678901
+Hào
+San Thật Chất
+Trig
 EOF
 
 # 2. Test trước
@@ -169,8 +186,8 @@ npm run bulk --file contacts.txt "New office opening!" --delay 2
 # Sau khi sinh báo cáo, gửi tin nhắn
 
 echo "📨 Sending report..."
-npm run msg 123456789 "Daily report" \
-  --file ~/Zalo Skill/reports/personal_report_*.docx
+npm run msg "Hào" "Daily report" \
+  --file ~/Zalo\ Skill/reports/personal_report_*.docx
 
 echo "✅ Sent!"
 ```
@@ -202,15 +219,16 @@ echo "✅ Sent!"
 
 ## 🚀 NEXT STEPS
 
-1. **Thử Message Sender:**
+1. **Thử Message Sender (bằng tên - MỚI!):**
    ```bash
-   npm run msg <yourFriendId> "Test message"
+   npm run msg "Hào" "Test message"
+   npm run msg "San Thật Chất" "Hi!"
    ```
 
 2. **Thử Friend Manager:**
    ```bash
    npm run friends list
-   npm run friends add <userId> "Hello!"
+   npm run friends add 987654321 "Hello!"
    ```
 
 3. **Thử Bulk Messenger:**
