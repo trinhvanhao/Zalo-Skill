@@ -26,7 +26,14 @@ const execPromise = promisify(exec);
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = 'gemini-2.0-flash';
 const MCP_PORT = process.env.MCP_PORT || 3847;
-const MCP_AUTH_KEY = process.env.MCP_AUTH_KEY || 'secret-key-123';
+const MCP_AUTH_KEY = process.env.MCP_AUTH_KEY;
+
+// 🔒 Validate required credentials
+if (!MCP_AUTH_KEY) {
+  console.error('❌ ERROR: MCP_AUTH_KEY not set in .env');
+  console.error('💡 Add to .env: MCP_AUTH_KEY=your-secret-key');
+  process.exit(1);
+}
 
 const SYSTEM_PROMPT = `Bạn là Hải Bot - Trợ lý Zalo thông minh 🤖
 

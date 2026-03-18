@@ -9,7 +9,7 @@
     "dev": "node --watch bot.js",
     "mcp": "node mcp-advanced.js",
     "mcp:stdio": "node mcp-server.js stdio",
-    "mcp:http": "node mcp-server.js http 3847 secret-key-123",
+    "mcp:http": "node mcp-server.js http 3847 $MCP_AUTH_KEY",
     "hybrid": "node hybrid-bot.js",
     "analyze": "python3 claude-analyzer.py",
     "analyze:watch": "watch -n 3600 'python3 claude-analyzer.py'",
